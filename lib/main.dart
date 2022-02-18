@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'pages/login/view/login.dart';
+import 'pages/signup/views/signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,14 +13,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Maid Service',
       theme: ThemeData(
         fontFamily: 'Inter',
         primarySwatch: Colors.green,
       ),
-      // home: const MyHomePage(title: 'Flutter  Home Page'),
       home: const LoginPage(),
+      getPages: [
+        GetPage(name: "/login", page: () => const LoginPage()),
+        GetPage(name: "/signup", page: () => const SignUpPage()),
+      ],
     );
   }
 }
