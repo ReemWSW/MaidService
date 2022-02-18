@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Button extends StatelessWidget {
   final String label;
+  final String toNamed;
   const Button({
     Key? key,
     required this.label,
+    required this.toNamed,
   }) : super(key: key);
 
   @override
@@ -14,7 +17,9 @@ class Button extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 50,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(toNamed);
+        },
         child: Text(label),
       ),
     );
