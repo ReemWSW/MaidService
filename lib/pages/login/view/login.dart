@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:maidservice/pages/components/textfield.dart';
 
 import 'components/button.dart';
 
@@ -32,27 +33,28 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const Padding(
               padding: EdgeInsets.all(8.0),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'อีเมลล์',
-                ),
+              child: CustomFormField(
+                hintText: 'email',
+                autocorrect: true,
+                keyboardType: TextInputType.emailAddress,
               ),
             ),
             const Padding(
               padding: EdgeInsets.all(8.0),
-              child: TextField(
+              child: CustomFormField(
+                hintText: 'รหัสผ่าน',
                 obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'รหัสผ่าน',
-                ),
               ),
             ),
-            const Button(label: 'เข้าสู่ระบบ'),
+            const Button(
+              label: 'เข้าสู่ระบบ',
+              toNamed: '/home',
+            ),
             TextButton(onPressed: () {}, child: const Text('ลืมรหัสผ่าน')),
-            const Button(label: 'ลงทะเบียน'),
+            const Button(
+              label: 'ลงทะเบียน',
+              toNamed: '/signup',
+            ),
           ],
         ),
       ),

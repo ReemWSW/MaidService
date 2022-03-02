@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maidservice/pages/components/textfield.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -7,75 +8,60 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: const <Widget>[
-            Text('ลงทะเบียน'),
-            // TextFieldCustom(hintText: 'ชือนาม-สกุล'),
-            // TextFieldCustom(hintText: 'อีเมลล์'),
-            // TextFieldCustom(hintText: 'รหัสผ่าน'),
-            // TextFieldCustom(hintText: 'ยืนยันรหัสผ่าน'),
-            // TextFieldCustom(hintText: 'เบอร์'),
-            // TextFieldCustom(hintText: 'เบอร์ฉุกเฉิน'),
-            // // TextFieldCustom(hintText: 'วันเดือนปีเกิด'),
-            // TextFieldCustom(hintText: 'จังหวัด'),
-            // TextFieldCustom(hintText: 'รายละเอียดที่อยู่'),
-            CustomFormField(hintText: 'ชือนาม-สกุล'),
-            CustomFormField(hintText: 'อีเมลล์'),
-            CustomFormField(hintText: 'รหัสผ่าน'),
-            CustomFormField(hintText: 'ยืนยันรหัสผ่าน'),
-            CustomFormField(hintText: 'เบอร์'),
-            CustomFormField(hintText: 'เบอร์ฉุกเฉิน'),
-            // TextFieldCustom(hintText: 'วันเดือนปีเกิด'),
-            CustomFormField(hintText: 'จังหวัด'),
-            CustomFormField(hintText: 'รายละเอียดที่อยู่'),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                child: Text(
+                  'ลงทะเบียน',
+                  style: TextStyle(fontSize: 30, fontFamily: 'EkkamaiNew'),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                child: Column(
+                  children: const <Widget>[
+                    CustomFormField(
+                      hintText: 'ชือนาม-สกุล',
+                      keyboardType: TextInputType.name,
+                    ),
+                    CustomFormField(
+                      hintText: 'อีเมลล์',
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                    CustomFormField(
+                      hintText: 'รหัสผ่าน',
+                      obscureText: true,
+                    ),
+                    CustomFormField(
+                      hintText: 'ยืนยันรหัสผ่าน',
+                      obscureText: true,
+                    ),
+                    CustomFormField(
+                      hintText: 'เบอร์',
+                      keyboardType: TextInputType.number,
+                    ),
+                    CustomFormField(
+                      hintText: 'เบอร์ฉุกเฉิน',
+                      keyboardType: TextInputType.number,
+                    ),
+                    // TextFieldCustom(hintText: 'วันเดือนปีเกิด'),
+                    CustomFormField(
+                      hintText: 'จังหวัด',
+                      keyboardType: TextInputType.text,
+                    ),
+                    CustomFormField(
+                      hintText: 'รายละเอียดที่อยู่',
+                      keyboardType: TextInputType.text,
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
-class CustomFormField extends StatelessWidget {
-  final String hintText;
-
-  const CustomFormField({
-    Key? key,
-    required this.hintText,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TextField(
-          decoration: InputDecoration(
-            hintText: hintText,
-          ),
-        )
-      ],
-    );
-  }
-}
-
-// class TextFieldCustom extends StatelessWidget {
-//   final String hintText;
-//   const TextFieldCustom({
-//     Key? key,
-//     required this.hintText,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Padding(
-//       padding: EdgeInsets.all(8.0),
-//       child: TextField(
-//         obscureText: true,
-//         decoration: InputDecoration(
-//           border: OutlineInputBorder(),
-//           hintText: 'sss',
-//         ),
-//       ),
-//     );
-//   }
-// }
