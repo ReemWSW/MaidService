@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Maid Service',
       theme: ThemeData(
-        fontFamily: 'Inter',
+        fontFamily: 'EkkamaiNew',
         primarySwatch: Colors.green,
       ),
       home: const LoginPage(),
