@@ -12,7 +12,7 @@ class CustomFormField extends StatelessWidget {
     required this.hintText,
     this.obscureText = false,
     this.enableSuggestions = false,
-    this.autocorrect = false,
+    this.autocorrect = true,
     this.keyboardType = TextInputType.text,
   }) : super(key: key);
 
@@ -20,14 +20,20 @@ class CustomFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 18.0),
-      child: TextField(
-        obscureText: obscureText,
-        enableSuggestions: enableSuggestions,
-        autocorrect: autocorrect,
-        keyboardType: keyboardType,
-        decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: hintText,
+      child: SizedBox(
+        height: 50,
+        child: TextField(
+          obscureText: obscureText,
+          enableSuggestions: enableSuggestions,
+          autocorrect: autocorrect,
+          keyboardType: keyboardType,
+          style: const TextStyle(fontSize: 16),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            hintText: hintText,
+          ),
         ),
       ),
     );
