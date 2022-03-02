@@ -19,9 +19,9 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                padding: const EdgeInsets.fromLTRB(18, 0, 18, 18),
                 child: Column(
-                  children: const <Widget>[
+                  children: <Widget>[
                     CustomFormField(
                       hintText: 'ชือนาม-สกุล',
                       keyboardType: TextInputType.name,
@@ -54,6 +54,30 @@ class SignUpPage extends StatelessWidget {
                     CustomFormField(
                       hintText: 'รายละเอียดที่อยู่',
                       keyboardType: TextInputType.text,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.green,
+                            onPrimary: Colors.white,
+                            shadowColor: Colors.greenAccent,
+                            elevation: 3,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0)),
+                            minimumSize: const Size(119, 50), //////// HERE
+                          ),
+                          onPressed: () {},
+                          child: const Text(
+                            'ลงทะเบียน',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
