@@ -8,8 +8,8 @@ class CustomFormField extends StatelessWidget {
   final TextInputType keyboardType;
 
   const CustomFormField({
-    Key? key,
-    required this.hintText,
+    Key key,
+    @required this.hintText,
     this.obscureText = false,
     this.enableSuggestions = false,
     this.autocorrect = true,

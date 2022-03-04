@@ -4,7 +4,7 @@ import 'package:date_time_picker/date_time_picker.dart';
 import '../../components/textfield.dart';
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  const SignUpPage({Key key}) : super(key: key);
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -14,7 +14,7 @@ class _SignUpPageState extends State<SignUpPage> {
   DateTime selectedDate = DateTime.now();
 
   Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
+    final DateTime picked = await showDatePicker(
         context: context,
         initialDate: selectedDate,
         firstDate: DateTime(1970),

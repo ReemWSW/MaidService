@@ -5,9 +5,9 @@ class Button extends StatelessWidget {
   final String label;
   final String toNamed;
   const Button({
-    Key? key,
-    required this.label,
-    required this.toNamed,
+    Key key,
+    @required this.label,
+    @required this.toNamed,
   }) : super(key: key);
 
   @override
