@@ -1,6 +1,5 @@
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:maidservice/pages/components/textfield.dart';
 
 class WashScreen extends StatelessWidget {
   const WashScreen({Key key}) : super(key: key);
@@ -8,6 +7,7 @@ class WashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('บริการเสื้อผ้า'),
         actions: [
@@ -18,66 +18,129 @@ class WashScreen extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18.0),
+        padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 18.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-                child: Column(children: <Widget>[
-              const Text('สถานที่ต้องการรับบริการ'),
-              ElevatedButton(
-                  onPressed: () {}, child: const Text('เลือกสถานที่ต้องการ'))
-            ])),
-            SizedBox(
-                child: Column(children: <Widget>[
-              const Text('ขนาดที่ต้องการใช้บริการ'),
-              ElevatedButton(onPressed: () {}, child: const Text('เลือกขนาด'))
-            ])),
-            SizedBox(
-              child: Column(
-                children: [
-                  const Text('รายละเอียดเพิ่มเติม'),
-                  TextFormField(
-                    keyboardType: TextInputType.text,
-                    minLines: 3,
-                    maxLines: 5,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'รายละเอียด',
+            Column(
+              children: [
+                const ListWash(
+                  btnlabel: 'สถานที่ต้องการรับบริการ',
+                  label: 'เลือกสถานที่ที่ต้องการ',
+                ),
+                const ListWash(
+                  btnlabel: 'ขนาดที่ต้องการใช้บริการ',
+                  label: 'เลือกขนาด',
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 36),
+                  child: Column(children: [
+                    const TextLabel(
+                      label: 'รายละเอียดเพิ่มเติม',
                     ),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              child: Column(
-                children: [
-                  const Text('เลือกวันที่ต้องการ'),
-                  DateTimePicker(
-                    type: DateTimePickerType.date,
-                    dateMask: 'd MMM, yyyy',
-                    initialValue: DateTime.now().toString(),
-                    firstDate: DateTime(1970),
-                    lastDate: DateTime(2030),
-                    selectableDayPredicate: (date) {
-                      // Disable weekend days to select from the calendar
-                      if (date.weekday == 6 || date.weekday == 7) {
-                        return false;
-                      }
+                    TextFormField(
+                        keyboardType: TextInputType.text,
+                        minLines: 3,
+                        maxLines: 5,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'รายละเอียด',
+                        ))
+                  ]),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 36),
+                  child: Column(
+                    children: [
+                      const TextLabel(label: 'เลือกวันที่ต้องการ'),
+                      DateTimePicker(
+                        type: DateTimePickerType.dateTimeSeparate,
+                        dateMask: 'dd-MMM-yyyy',
+                        initialValue: DateTime.now().toString(),
+                        firstDate: DateTime(1970),
+                        lastDate: DateTime(2030),
+                        selectableDayPredicate: (date) {
+                          // Disable weekend days to select from the calendar
+                          if (date.weekday == 6 || date.weekday == 7) {
+                            return false;
+                          }
 
-                      return true;
-                    },
-                    onChanged: (val) => print(val),
-                    validator: (val) {
-                      print(val);
-                      return null;
-                    },
-                    onSaved: (val) => print(val),
+                          return true;
+                        },
+                        onChanged: (val) => print(val),
+                        validator: (val) {
+                          print(val);
+                          return null;
+                        },
+                        onSaved: (val) => print(val),
+                      ),
+                    ],
                   ),
-                ],
+                ),
+              ],
+            ),
+            Container(
+              alignment: Alignment.bottomRight,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text('ถัดไป'),
+                style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(120, 50),
+                ),
               ),
             )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ListWash extends StatelessWidget {
+  final String label;
+  final String btnlabel;
+  const ListWash({
+    Key key,
+    @required this.label,
+    @required this.btnlabel,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 36),
+      child: Column(children: <Widget>[
+        TextLabel(label: label),
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: 56,
+          child: ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                btnlabel,
+                style: const TextStyle(fontSize: 16),
+              )),
+        )
+      ]),
+    );
+  }
+}
+
+class TextLabel extends StatelessWidget {
+  const TextLabel({
+    Key key,
+    @required this.label,
+  }) : super(key: key);
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: Text(
+        label,
+        style: const TextStyle(fontSize: 16),
       ),
     );
   }
