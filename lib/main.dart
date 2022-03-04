@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:maidservice/pages/home/view/home.dart';
 
 import 'pages/login/view/login.dart';
 import 'pages/signup/views/signup.dart';
@@ -15,15 +16,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Maid Service',
       theme: ThemeData(
         fontFamily: 'EkkamaiNew',
         primarySwatch: Colors.green,
       ),
-      home: const LoginPage(),
+      home: const HomePage(),
       getPages: [
         GetPage(name: "/login", page: () => const LoginPage()),
         GetPage(name: "/signup", page: () => const SignUpPage()),
+        GetPage(name: "/home", page: () => const HomePage()),
       ],
     );
   }
