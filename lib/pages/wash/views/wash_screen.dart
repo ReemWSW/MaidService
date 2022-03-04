@@ -1,6 +1,8 @@
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 
+import 'wash_detail_screen.dart';
+
 class WashScreen extends StatelessWidget {
   const WashScreen({Key key}) : super(key: key);
 
@@ -12,7 +14,13 @@ class WashScreen extends StatelessWidget {
         title: const Text('บริการเสื้อผ้า'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const WashDeatailScreen()),
+              );
+            },
             icon: const Icon(Icons.info),
           )
         ],
