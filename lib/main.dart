@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'EkkamaiNew',
         primarySwatch: Colors.green,
       ),
-      home: const WashScreen(),
+      home: const LoginPage(),
       getPages: [
         GetPage(name: "/login", page: () => const LoginPage()),
         GetPage(name: "/signup", page: () => const SignUpPage()),
