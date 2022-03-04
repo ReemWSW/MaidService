@@ -24,13 +24,15 @@ class WashScreen extends StatelessWidget {
           children: [
             Column(
               children: [
-                const ListWash(
+                ListWash(
                   btnlabel: 'สถานที่ต้องการรับบริการ',
                   label: 'เลือกสถานที่ที่ต้องการ',
+                  onpress: () {},
                 ),
-                const ListWash(
+                ListWash(
                   btnlabel: 'ขนาดที่ต้องการใช้บริการ',
                   label: 'เลือกขนาด',
+                  onpress: () {},
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 36),
@@ -99,10 +101,12 @@ class WashScreen extends StatelessWidget {
 class ListWash extends StatelessWidget {
   final String label;
   final String btnlabel;
+  final Function onpress;
   const ListWash({
     Key key,
     @required this.label,
     @required this.btnlabel,
+    @required this.onpress,
   }) : super(key: key);
 
   @override
@@ -115,7 +119,7 @@ class ListWash extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: 56,
           child: ElevatedButton(
-              onPressed: () {},
+              onPressed: onpress,
               child: Text(
                 btnlabel,
                 style: const TextStyle(fontSize: 16),
