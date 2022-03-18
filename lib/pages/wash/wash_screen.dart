@@ -92,7 +92,27 @@ class WashScreen extends StatelessWidget {
             Container(
               alignment: Alignment.bottomRight,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text('เงื่อนไขการรับบริการ'),
+                    content: const Text(
+                        'หากไม่มีการตอบรับบริการภายใน 10 ชั่วโมงถือเป็นการยกเลิกโดยอัตโนมัติ'),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context, 'OK');
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //       builder: (context) => const SecondRoute()),
+                          // );
+                        },
+                        child: const Text('ตกลง'),
+                      ),
+                    ],
+                  ),
+                ),
                 child: const Text('ถัดไป'),
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size(120, 50),
