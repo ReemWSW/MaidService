@@ -1,6 +1,7 @@
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 
+import 'clean_wahere.dart';
 import 'wash_detail_screen.dart';
 import 'wash_maid.dart';
 
@@ -36,7 +37,11 @@ class WashScreen extends StatelessWidget {
                 ListWash(
                   btnlabel: 'สถานที่ต้องการรับบริการ',
                   label: 'เลือกสถานที่ที่ต้องการ',
-                  onpress: () {},
+                  onpress: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CleanWherePage()),
+                  ),
                 ),
                 ListWash(
                   btnlabel: 'ขนาดที่ต้องการใช้บริการ',
