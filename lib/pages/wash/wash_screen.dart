@@ -2,6 +2,7 @@ import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 
 import 'wash_detail_screen.dart';
+import 'wash_maid.dart';
 
 class WashScreen extends StatelessWidget {
   const WashScreen({Key key}) : super(key: key);
@@ -102,11 +103,11 @@ class WashScreen extends StatelessWidget {
                       TextButton(
                         onPressed: () {
                           Navigator.pop(context, 'OK');
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //       builder: (context) => const SecondRoute()),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const WashMaidPage()),
+                          );
                         },
                         child: const Text('ตกลง'),
                       ),
