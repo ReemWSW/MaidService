@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maidservice/pages/wash/views/wash_screen.dart';
+import 'package:maidservice/pages/wash/wash_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);

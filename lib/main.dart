@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:maidservice/pages/home/view/home.dart';
+import 'package:maidservice/pages/home/home.dart';
 
-import 'pages/login/view/login.dart';
-import 'pages/signup/views/signup.dart';
-import 'pages/wash/views/wash_screen.dart';
+import 'pages/login/login.dart';
+import 'pages/signup/signup.dart';
+import 'pages/wash/wash_screen.dart';
 
 void main() {
   runApp(const MyApp());
