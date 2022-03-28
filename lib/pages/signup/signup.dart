@@ -76,7 +76,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Colors.grey,
                             spreadRadius: 1,

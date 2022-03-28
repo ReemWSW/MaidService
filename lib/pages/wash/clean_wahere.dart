@@ -37,7 +37,7 @@ class _CleanWherePageState extends State<CleanWherePage> {
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => CleanLocation(text: 'edit')),
+                      builder: (context) => const CleanLocation(text: 'edit')),
                 ),
               ),
             ),
@@ -52,7 +52,7 @@ class _CleanWherePageState extends State<CleanWherePage> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => CleanLocation(text: 'add')),
+          MaterialPageRoute(builder: (context) => const CleanLocation(text: 'add')),
         );
         print('tap');
       },

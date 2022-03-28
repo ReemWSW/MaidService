@@ -18,7 +18,7 @@ class Button extends StatelessWidget {
       height: 50,
       child: ElevatedButton(
         onPressed: () {
-          Get.toNamed(toNamed);
+          Navigator.pushNamed(context, toNamed);
         },
         child: Text(label),
       ),

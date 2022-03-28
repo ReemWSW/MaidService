@@ -135,10 +135,7 @@ class _HomePageState extends State<HomePage> {
       child: InkWell(
         splashColor: Colors.blue.withAlpha(30),
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const WashScreen()),
-          );
+          Navigator.pushNamed(context, '/wash');
         },
         child: Column(
           children: [

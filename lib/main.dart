@@ -23,12 +23,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
       home: const HomePage(),
-      getPages: [
-        GetPage(name: "/login", page: () => const LoginPage()),
-        GetPage(name: "/signup", page: () => const SignUpPage()),
-        GetPage(name: "/home", page: () => const HomePage()),
-        GetPage(name: "/wash", page: () => const WashScreen()),
-      ],
+      routes: {
+        '/login': (context) => const LoginPage(),
+        "/signup": (context) => const SignUpPage(),
+        "/home": (context) => const HomePage(),
+        "/wash": (context) => const WashScreen(),
+      },
     );
   }
 }
